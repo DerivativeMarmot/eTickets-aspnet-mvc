@@ -10,6 +10,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("eCommerceContext"));
 });
 
+// seed database
+AppDbInitializer.Seed(builder.Services.BuildServiceProvider());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
